@@ -129,11 +129,17 @@ const useLocalStorage = (key: string, initialValue: any) => {
 
 // TODO: Create a UserContext and a UserProvider component.
 
-const UserContext = React.createContext<User>({
-  id: '',
-  name: '',
-  email: '',
-  profilePhotoUrl: null,
+const UserContext = React.createContext<{
+  user: User
+  setUser: React.Dispatch<React.SetStateAction<User>>
+}>({
+  user: {
+    id: '',
+    name: '',
+    email: '',
+    profilePhotoUrl: null,
+  },
+  setUser: () => void
 })
 
 const UserProvider = (props: any) => {
